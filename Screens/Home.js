@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Animated, ScrollView, SafeAreaView, Dimensions, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, Animated, ScrollView, SafeAreaView, Dimensions, TouchableOpacity, Image, FlatList } from 'react-native';
 import { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,6 +8,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import data from '../data/data';
+import data1 from '../data/data1';
+
+
 
 
 const Height = Dimensions.get('window').height;
@@ -41,7 +45,7 @@ export default function Home() {
           </SafeAreaView>
       <ScrollView 
         scrollEventThrottle={16}
-        onScroll={Animated.event([{ nativeEvent : { contentOffset: { y : animationValue } }}],{useNativeDriver: false} )}>
+        onScroll={Animated.event([{ nativeEvent : { contentOffset: { y : animationValue } }}],{useNativeDriver: false} )} bounces={false}>
  
         <Animated.View style={[styles.scrollViewStyle, backgroundStyle]}>
             <View style={styles.categories}>
@@ -56,7 +60,7 @@ export default function Home() {
             </View>
             <View>
                 <View style={styles.big}>
-                    <TouchableOpacity><Image style={styles.mainpic} source={require("../images/big.jpg")} /></TouchableOpacity>
+                    <Image style={styles.mainpic} source={require("../images/big.jpg")} />
                 </View>
                 <View style={styles.buttons}>
                     <TouchableOpacity>
@@ -73,6 +77,30 @@ export default function Home() {
                     </TouchableOpacity>
                 </View>
             </View>
+            <Text style={styles.rectext}>Our Best Recommendations for You</Text>
+            <FlatList
+            horizontal 
+            data= {data}
+            keyExtractor= {(item) => item.id}
+            renderItem = {({item})=> (
+            <View>
+              <TouchableOpacity><Image style={styles.recimages} source={item.image} /></TouchableOpacity>
+            </View>
+            
+            )}/>
+
+            <Text style={styles.picked}>We Picked These for You Today</Text>
+            <FlatList
+            horizontal 
+            data= {data1}
+            keyExtractor= {(item) => item.id}
+            renderItem = {({item})=> (
+            <View>
+              <TouchableOpacity><Image style={styles.recimages} source={item.image} /></TouchableOpacity>
+            </View>
+            
+            )}/>
+
         </Animated.View>
         
            
@@ -161,7 +189,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    color: 'white',
     backgroundColor: "#303030",
     paddingHorizontal: Width * 0.13,
     paddingVertical: 8,
@@ -178,7 +205,7 @@ const styles = StyleSheet.create({
   },
   buttonstext:{
     fontSize: 17,
-    color: 'white'
+    color: 'white',
   },
   buttonstext1:{
     fontSize: 17,
@@ -192,5 +219,26 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingVertical: 8,
     borderRadius: 5,
-  }
+  },
+  rectext:{
+    marginTop: 40,
+    color: 'white',
+    fontSize: 18,
+    marginLeft: 7,
+    fontWeight: '700'
+  },
+  recimages:{
+    marginTop: 10,
+    width: Width * 0.3,
+    height: Height * 0.176,
+    borderRadius: 4,
+    marginHorizontal: 5
+  },
+  picked:{
+    marginTop: -450,
+    color: 'white',
+    fontSize: 18,
+    marginLeft: 7,
+    fontWeight: '700'
+  },
 });

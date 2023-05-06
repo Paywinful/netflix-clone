@@ -41,11 +41,11 @@ export default function navigation({passwords}) {
           tabBarInactiveTintColor: 'gray',
           tabBarStyle :{
             position: 'absolute',
-            backgroundColor : '#00000000',
+            backgroundColor : '#4a4a4a',
             borderTopColor: '#1f1f1f',
-            tabBarBackground: () => (
-              <BlurView tint="dark" intensity={100} style={StyleSheet.absoluteFill} />
-            ),
+            // tabBarBackground: () => (
+            //   <BlurView tint="dark" intensity={100} style={StyleSheet.absoluteFill} />
+            // ),
           },
           headerStyle: {
             backgroundColor: 'black',
