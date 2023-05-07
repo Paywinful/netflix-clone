@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, } from 'react-native';
 import Home from './Screens/Home';
@@ -22,7 +21,7 @@ export default function navigation({passwords}) {
               iconName = focused
                 ? 'home-variant'
                 : 'home-variant-outline';
-            } else if (route.name === 'NewsHot') {
+            } else if (route.name === 'News & Hot') {
               iconName = focused 
               ? 'play-box-multiple' 
               : 'play-box-multiple-outline';
@@ -54,7 +53,7 @@ export default function navigation({passwords}) {
           
         })}>
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="NewsHot" component={NewsHot} />
+        <Tab.Screen name="News & Hot" component={NewsHot} />
         <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>
     </NavigationContainer>

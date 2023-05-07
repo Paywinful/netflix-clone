@@ -8,8 +8,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 import data from '../data/data';
 import data1 from '../data/data1';
+import data2 from '../data/data2';
+import data3 from '../data/data3';
 
 
 
@@ -67,7 +70,7 @@ export default function Home() {
                     <View style={styles.play}>
                     <FontAwesome name="play" size={24} color="black" />
                         <Text style={styles.buttonstext1}> Play</Text>
-                    </View>
+                    </View> 
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <View style={styles.mylist}>
@@ -101,6 +104,36 @@ export default function Home() {
             
             )}/>
 
+            <Text style={styles.picked}>Continue Watching for Payin</Text>
+            <FlatList
+            horizontal 
+            data= {data2}
+            keyExtractor= {(item) => item.id}
+            renderItem = {({item})=> (
+            <View>
+              <Image style={styles.recimages1} source={item.image} />
+              <TouchableOpacity style={styles.playicon}><Ionicons style={styles.playiconbg} name="play-circle-outline" size={55} color="white" /></TouchableOpacity>
+              <View style={styles.options}>
+               <TouchableOpacity><Feather style={styles.icons2} name="info" size={24} color="#a6a6a6" /></TouchableOpacity>
+               <TouchableOpacity><SimpleLineIcons style={styles.icons2} name="options-vertical" size={19} color="#a6a6a6" /></TouchableOpacity>
+              </View>
+            </View>
+            
+            )}/>
+
+            <Text style={styles.picked}>Watch It Again</Text>
+            <FlatList
+            horizontal 
+            data= {data3}
+            keyExtractor= {(item) => item.id}
+            renderItem = {({item})=> (
+            <View>
+              <TouchableOpacity><Image style={styles.recimages} source={item.image} /></TouchableOpacity>
+            </View>
+            
+            )}/>
+          
+
         </Animated.View>
         
            
@@ -116,7 +149,7 @@ const styles = StyleSheet.create({
   },
   scrollViewStyle:
   {
-     height: 1500
+     height: 1600
   },
   nav: {
     display: 'flex',
@@ -206,10 +239,12 @@ const styles = StyleSheet.create({
   buttonstext:{
     fontSize: 17,
     color: 'white',
+    fontWeight: '600'
   },
   buttonstext1:{
     fontSize: 17,
-    color: 'black'
+    color: 'black',
+    fontWeight: '600'
   },
   play:{
     display: 'flex',
@@ -226,6 +261,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginLeft: 7,
     fontWeight: '700'
+
   },
   recimages:{
     marginTop: 10,
@@ -235,10 +271,47 @@ const styles = StyleSheet.create({
     marginHorizontal: 5
   },
   picked:{
-    marginTop: -450,
+    marginTop: Height * -0.08,
     color: 'white',
     fontSize: 18,
     marginLeft: 7,
     fontWeight: '700'
   },
+  recimages1:{
+    marginTop: 10,
+    width: Width * 0.28,
+    height: Height * 0.16,
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
+    marginHorizontal: 5
+  },
+  options:{
+    width: Width * 0.28,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 5,
+    backgroundColor: '#1a1a1a',
+    paddingVertical: 5,
+    borderTopWidth: 2,
+    borderTopColor: 'red'
+  },
+  icons2:{
+    marginHorizontal: 7,
+  },
+  playicon:{
+    alignItems: 'center',
+    position: 'absolute',
+    top: 50,
+    left: 40,
+    borderRadius: 70,
+    backgroundColor: 'black', 
+    width: 50,
+    height: 50,
+    opacity: 0.6
+  },
+
+  playiconbg: {
+    marginTop: -4
+  }
 });
