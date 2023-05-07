@@ -229,8 +229,8 @@ const styles = StyleSheet.create({
   },
   recimages:{
     marginTop: 10,
-    width: Width * 0.3,
-    height: Height * 0.176,
+    width: Width * 0.28,
+    height: Height * 0.178,
     borderRadius: 4,
     marginHorizontal: 5
   },
