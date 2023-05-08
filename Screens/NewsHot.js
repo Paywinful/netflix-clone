@@ -19,7 +19,7 @@ export default function NewsHot() {
     <View style={styles.container}>
       <SafeAreaView>
             <View style={styles.nav}>
-                <Text style={styles.pfname}>For Payin</Text>
+                <Text style={styles.pfname}>New & Hot</Text>
                 <View style={styles.navicons}>
                     <TouchableOpacity><Text style={styles.icons}><Feather name="cast" size={25} color="white" /></Text></TouchableOpacity>
                     <TouchableOpacity><Text style={styles.icons}><Ionicons name="arrow-down-circle-outline" size={28} color="white" /></Text></TouchableOpacity>
@@ -30,7 +30,6 @@ export default function NewsHot() {
                 <TouchableOpacity style={styles.categoriesbg}><Text style={styles.categoriestext}>🍿 Coming Soon</Text></TouchableOpacity>
                 <TouchableOpacity><Text style={styles.categoriestext1}>🔥 Everyones's Watching</Text></TouchableOpacity>
             </View>
-            {/* <ScrollView> */}
               <Text style={styles.coming}>🍿 Coming Soon</Text>
 
               <FlatList
@@ -72,7 +71,6 @@ export default function NewsHot() {
             </View>
             
             )}/>
-            {/* </ScrollView> */}
 
             
         </SafeAreaView>
@@ -144,7 +142,8 @@ const styles = StyleSheet.create({
     color: 'white',
     marginTop: Height * 0.01,
     marginLeft: 5,
-    fontWeight: '700'
+    fontWeight: '700',
+    marginBottom: 10
   },
   images: {
     width: Width * 0.85,
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     justifyContent: 'center',
-    opacity: 0.5,
+    opacity: 0.7,
     alignItems: 'center'
   },
   naming: {

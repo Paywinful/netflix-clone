@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, } from 'react-native';
 import Home from './Screens/Home';
-import { BlurView } from 'expo-blur';
 import NewsHot from './Screens/NewsHot';
 import Profile from './Screens/Profile';
 
@@ -32,7 +31,6 @@ export default function navigation({passwords}) {
             }
 
 
-            // You can return any component that you like here!
             return <MaterialCommunityIcons name={iconName} size={24} color={color} />;
           },
 
@@ -42,9 +40,6 @@ export default function navigation({passwords}) {
             position: 'absolute',
             backgroundColor : '#4a4a4a',
             borderTopColor: '#1f1f1f',
-            // tabBarBackground: () => (
-            //   <BlurView tint="dark" intensity={100} style={StyleSheet.absoluteFill} />
-            // ),
           },
           headerStyle: {
             backgroundColor: 'black',
